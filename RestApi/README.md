@@ -11,7 +11,7 @@ pip install djangorestframework
 python manage.py runserver
 ```
 
-##Refernce:
+##Reference:
 
 [django-Restful] https://www.django-rest-framework.org/
 
