@@ -1,0 +1,12 @@
+https://www.educative.io/courses/grokking-the-system-design-interview/m2ygV4E81AR
+
+https://www.geeksforgeeks.org/how-to-design-a-tiny-url-or-url-shortener/
+
+https://medium.com/@narengowda/url-shortener-system-design-3db520939a1c
+
+https://levelup.gitconnected.com/system-design-designing-a-scalable-highly-available-url-shortener-eef5a5698d50
+
+https://betterprogramming.pub/how-would-you-design-tinyurl-and-instagram-987dfc06cbe9
+
+https://www.codekarle.com/system-design/TinyUrl-system-design.html
+
