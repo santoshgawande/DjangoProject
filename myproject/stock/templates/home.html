@@ -1,1 +1,22 @@
-Hello
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/0.11.10/vue.min.js"></script>
+ <html>
+     <head>
+         <h1>Hello VueJs</h1>
+     </head>
+     <body>
+        <div id="app">
+            <p>{{ message }}</p>
+          </div>
+
+     </body>
+ </html>
+
+
+<script type="text/javascript">
+    new Vue({
+        el: '#app',
+        data: {
+            message: 'Hello Vue.js!'
+        }
+    })
+</script>
