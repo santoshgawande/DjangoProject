@@ -7,7 +7,9 @@ driver = webdriver.Firefox(executable_path = 'geckodriver')
 URL = 'https://www.bseindia.com/markets/MarketInfo/BhavCopy.aspx'
 # URL = 'https://www.geeksforgeeks.org/'
 page = driver.get(URL)
-driver.find_element_by_xpath('/html/body/form/div[3]/div[2]/div/div[2]/div/div[2]/div/div/div[1]/table/tbody/tr/td/table[1]/tbody/tr/td/table/tbody/tr[2]/td[2]/table/tbody/tr[1]/td[1]/span/label').click()
+driver.find_element_by_xpath('/html/body/form/div[3]/div[2]/div/div[2]/div/div[2]/div/div/div[1]/table/tbody/tr/td/table[1]/tbody/tr/td/table/tbody/tr[2]/td[2]/table/tbody/tr[1]/td[1]/span/label/').click()
+# /html/body/form/div[3]/div[2]/div/div[2]/div/div[2]/div/div/div[1]/table/tbody/tr/td/table[1]/tbody/tr/td/table/tbody/tr[2]/td[2]/table/tbody/tr[1]/td[1]/span/label
+# /html/body/form/div[3]/div[2]/div/div[2]/div/div[2]/div/div/div[1]/table/tbody/tr/td/table[1]/tbody/tr/td/table/tbody/tr[2]/td[2]/table/tbody/tr[1]/td[1]/span/label
 # dropdown option
 #  dd                                         mm                              yy 
 # //*[@id="ContentPlaceHolder1_fdate1"]    //*[@id="ContentPlaceHolder1_fmonth1"]   //*[@id="ContentPlaceHolder1_fyear1"]
