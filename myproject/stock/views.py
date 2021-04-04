@@ -6,8 +6,18 @@ from django.views.decorators.cache import cache_page
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
+from django.core.cache import cache
 import redis
 from .scrapping.get_data import import_data
+from .models import Equity
+
+# from rest_framework.decorators import api_view
+# from rest_framework import status
+# from rest_framework.response import Response
+# from django.core.cache import cache
+# from django.conf import settings
+# from django.core.cache.backends.base import DEFAULT_TIMEOUT
+# from django.core.cache import cache
 
 CACHE_TTL = getattr(settings, 'CACHE_TTL', DEFAULT_TIMEOUT)
 
@@ -59,13 +69,24 @@ def home(request):
         'data':"Hi Redis"
     })
 
-
+@cache_page(CACHE_TTL)
 @api_view(['GET'])
 def view_stock(request):
-    equities = Equity.objects.all()
-    results = [equity.to_json() for equity in equities]
-    print("result :", results)
-    return Response(results, status=status.HTTP_201_CREATED)
+   
+    if 'equity' in cache:
+        # get results from cache
+        equities = cache.get('equity')
+        return Response(equities, status=status.HTTP_201_CREATED)
+ 
+    else:
+        equities = Equity.objects.all()
+        results = [equity.to_json() for equity in equities]
+        # store data in cache
+        print("result :", results)
+        cache.set(equity, results, timeout=CACHE_TTL)
+        return Response(results, status=status.HTTP_201_CREATED)
+
+    # return Response(results, status=status.HTTP_201_CREATED)
 # # Create your views here.
 # def home(request):
 #     return render(request, 'home.html')

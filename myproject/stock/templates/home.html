@@ -1,22 +1,83 @@
- <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/0.11.10/vue.min.js"></script>
+ <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/0.11.10/vue.min.js"></script> -->
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+ <link href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" rel="stylesheet">
+ <link href="https://cdn.datatables.net/select/1.3.1/css/select.dataTables.min.css" rel="stylesheet">
+
+ {% block content %}
+
  <html>
      <head>
-         <h1>Hello VueJs</h1>
+        <title>Hello VueJs</title>
      </head>
      <body>
-        <div id="app">
-            <p>{{ message }}</p>
-          </div>
+        <div >
+            <table id="extable">
+
+            </table>
+            <button type="submit" onclick="showTable()">Display Table</button>
+
+        </div>
+        
+        <!-- <div id="app"> -->
+            <!-- <p>{{ message }}</p> -->
+            <!-- {% for result  in results %}
+            {{ result}}
+
+            {% endfor %}
+          </div> -->
 
      </body>
  </html>
 
 
-<script type="text/javascript">
-    new Vue({
-        el: '#app',
-        data: {
-            message: 'Hello Vue.js!'
+<script >
+    // with Bridge Option
+    function ShowTable(){
+    
+        // $('#extable').show();
+        // if ($.fn.dataTable.isDataTable('#extable')) {
+        //     $('#extable').DataTable().destroy();
+        //     $('#extable').empty();
+        // }
+        var hdtr = $('<thead/>');
+        var headerTr$ = $('<tr/>');
+        var tbody = $('<tbody/>');
+        // getting Stock Info
+        var cols = ["code","name","open","high","low","close"];
+        
+        // thead
+        for (var i = 0; i < cols.length; i++) {  
+            var key  = res[i];
+            headerTr$.append($('<th />').html(key));
+        }  
+        hdtr.append(headerTr$);
+        $('#extable').append(hdtr);
+        //tbody
+        for(var j=0;j<5;j++){
+            var row$ = $('<tr id="row_' + i +'"/>');
+            for(var k=0;k<6;k++){
+                row$.append($('<td/>').html(j));
+            }
+            $(tbody).append(row$);
         }
-    })
+        $("#extable").append(tbody);
+
+        $("#extable").DataTable({
+            // destroy: true,
+            height: 700,        
+            // dom: "Bfrtip",
+        
+        });
+
+
+    }
+    // var data = {results|safe}
+    // console.log(data)
+    // new Vue({
+    //     el: '#app',
+    //     data: {
+    //         message: 'Hello Vue.js!'
+    //     }
+    // })
 </script>
+{% endblock %}

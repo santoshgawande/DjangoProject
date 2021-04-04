@@ -5,10 +5,8 @@ class Equity(models.Model):
 
     code = models.IntegerField()
     name = models.CharField(max_length=255)
-
     open = models.FloatField(max_length=255)
     high = models.CharField(max_length=255)
-
     low = models.FloatField(max_length=255)
     close = models.CharField(max_length=255)
 
